@@ -6,8 +6,28 @@
     <atom:link href="https://andy-ho.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>一个会写Cpp的文艺范儿佛系AI PM。</description>
     <generator>Solo, v4.3.1, https://b3log.org/solo</generator>
-    <lastBuildDate>Sun, 24 Jan 2021 11:56:29 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jan 2021 22:03:52 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <item>
+      <title>证道歌</title>
+      <link>https://andy-ho.github.io/articles/2021/01/24/1611492658816.html</link>
+      <description><![CDATA[<blockquote>
+<p>《证道歌》是<a href="https://baike.baidu.com/item/%E5%94%90%E4%BB%A3/345315" target="_blank">唐代</a>高僧永嘉<a href="https://baike.baidu.com/item/%E7%8E%84%E8%A7%89%E7%A6%85%E5%B8%88/15772812" target="_blank">玄觉禅师</a>悟道后心得精华的文字<a href="https://baike.baidu.com/item/%E8%AE%B0%E5%BD%95/1837758" target="_blank">记录</a>。这首<a href="https://baike.baidu.com/item/%E8%AF%97%E6%AD%8C/5555" target="_blank">诗歌</a>凝聚了佛教智慧和人生智慧的特有风采，产生了较为深远的影响。全诗二百四十七句，为长篇杂言形式，语言文字通俗，阐扬佛学禅理，唐宋时广为流传。</p>
+</blockquote>]]></description>
+      <author>andyho</author>
+      <guid>https://andy-ho.github.io/articles/2021/01/24/1611492658816.html</guid>
+      <category>佛法</category>
+      <pubDate>Sun, 24 Jan 2021 21:15:30 +0800</pubDate>
+    </item>
+    <item>
+      <title>金刚萨埵百字明</title>
+      <link>https://andy-ho.github.io/articles/2021/01/24/1611491064594.html</link>
+      <description><![CDATA[<p>“金刚萨埵”，亦作“金刚萨垛”(<a href="https://baike.baidu.com/item/%E8%97%8F%E4%BC%A0%E4%BD%9B%E6%95%99/172243" target="_blank">藏传佛教</a>密宗）。金刚萨埵百字明咒，又作金刚萨埵咒、百字真言、百字明、金刚萨埵百字明等。</p>]]></description>
+      <author>andyho</author>
+      <guid>https://andy-ho.github.io/articles/2021/01/24/1611491064594.html</guid>
+      <category>佛法</category>
+      <pubDate>Sun, 24 Jan 2021 20:24:24 +0800</pubDate>
+    </item>
     <item>
       <title>书单</title>
       <link>https://andy-ho.github.io/articles/2021/01/24/1611419632093.html</link>
@@ -15,7 +35,7 @@
       <author>andyho</author>
       <guid>https://andy-ho.github.io/articles/2021/01/24/1611419632093.html</guid>
       <category>Reading</category>
-      <pubDate>Sun, 24 Jan 2021 09:26:50 +0800</pubDate>
+      <pubDate>Sun, 24 Jan 2021 15:16:12 +0800</pubDate>
     </item>
     <item>
       <title>般若波罗蜜多心经</title>
@@ -110,36 +130,6 @@
       <guid>https://andy-ho.github.io/articles/2020/01/12/1578837908921.html</guid>
       <category>Reading</category>
       <pubDate>Sat, 23 Jan 2021 20:43:20 +0800</pubDate>
-    </item>
-    <item>
-      <title>你相信什么，就会朝向什么</title>
-      <link>https://andy-ho.github.io/articles/2020/01/16/1579187202348.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/file/2020/01/%E6%98%9F%E7%A9%BA%E6%BC%94%E8%AE%B2%E9%82%93%E7%B4%AB%E6%A3%8B-75c7ef4c.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="星空演讲邓紫棋.png"></p>
-<blockquote>
-<p>当我们还是小屁孩的时候，我们拥有着全天下最天真、最强大的信心。我们不怕打开自己的肚皮，没有一点点包袱。<br>
-但是在长大的过程中，别人的眼光，可畏的人言，确一点点磨蚀了我们的信心，直到我们最珍贵的那一份自信完全失落。<br>
-但假如我们从来没有丢弃自信呢？假如下一次有人说我们不够美不够瘦的时候，我们有智慧去回应这是一个我们不该相信的谎言呢？如果我们可以带着最初的自信说，这就是我呢。<br>
-——《I feel pretty》</p>
-</blockquote>]]></description>
-      <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/16/1579187202348.html</guid>
-      <category>Reading</category>
-      <pubDate>Sat, 23 Jan 2021 20:43:04 +0800</pubDate>
-    </item>
-    <item>
-      <title>转折2019，起飞2020</title>
-      <link>https://andy-ho.github.io/articles/2020/01/18/1579336274965.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/bing/20190702.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
-<blockquote>
-<p>常记溪亭日暮，沉醉不知归路。<br>
-兴尽晚回舟，误入藕花深处。<br>
-争渡，争渡，惊起一滩鸥鹭。<br>
-——李清照《如梦令·常记溪亭日暮》</p>
-</blockquote>]]></description>
-      <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/18/1579336274965.html</guid>
-      <category>Thought</category>
-      <pubDate>Sat, 23 Jan 2021 20:42:49 +0800</pubDate>
     </item>
   </channel>
 </rss>
