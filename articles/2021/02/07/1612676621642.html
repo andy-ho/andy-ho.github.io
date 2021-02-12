@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Linux 的启动流程 - 厚德菌</title><meta name="description" content="一个会写Cpp的文艺范儿佛系AI PM。"/><meta property="og:description" content="一个会写Cpp的文艺范儿佛系AI PM。"/>    <meta name="keywords" content="厚德菌,观音,参禅,歌尔,歌尔股份,新海软件,PM,项目经理,文艺,佛系,德健,Andy,Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://andy-ho.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://andy-ho.github.io"><link rel="icon" type="image/png" href="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"/><link rel="apple-touch-icon" href="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Linux 的启动流程 - 厚德菌"/><meta property="og:site_name" content="厚德菌"/><meta property="og:url"      content="https://andy-ho.github.io/articles/2021/02/07/1612676621642.html?"/><meta property="og:image" content="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"/><link rel="search" type="application/opensearchdescription+xml" title="Linux 的启动流程 - 厚德菌" href="/opensearch.xml"><link href="https://andy-ho.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://andy-ho.github.io/manifest.json">        <link rel="canonical" href="https://andy-ho.github.io/articles/2021/02/07/1612676621642.html">        <link rel="stylesheet"
+              href="https://andy-ho.github.io/skins/next/css/base.css?1612759470814"/>
+            <link rel="prev" title="2021.1.31我给儿子买了一份重疾险" href="https://andy-ho.github.io/articles/2021/01/31/1612080415476.html">
+            <link rel="next" title="Linux 系统目录结构" href="https://andy-ho.github.io/articles/2021/02/07/1612677144228.html">
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.6.6/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
+<body>
+<header class="header">
+    <div class="header-line"></div>
+    <div class="fn-clear wrapper">
+        <div class="logo-wrap">
+            <a href="https://andy-ho.github.io" rel="start">
+                <span class="logo-line-before"><i></i></span>
+                <span class="site-title">厚德菌</span>
+                <span class="logo-line-after"><i></i></span>
+            </a>
+        </div>
+
+        <div class="site-nav-toggle fn-right"
+             onclick="$('.header-line').toggle();$('nav').children('.menu').slideToggle();">
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+        </div>
+
+        <nav>
+            <ul class="menu">
+                    <li class="menu-item">
+                        <a href="/articles/2020/01/17/1579273512935.html" target="_self" rel="section">
+                            何许人也
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/articles/2021/02/12/1613090652063.html" target="_self" rel="section">
+                            岁在辛丑
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/articles/2021/01/24/1611419632093.html" target="_self" rel="section">
+                            书单
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://ld246.com/member/andyho" target="_self" rel="section">
+                            链滴
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://gitee.com/andy-ho" target="_self" rel="section">
+                            Gitee
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://github.com/andy-ho" target="_self" rel="section">
+                            Github
+                        </a>
+                    </li>
+            </ul>
+
+        </nav>
+    </div>
+</header><main class="main">
+    <div class="wrapper">
+        <div class="content">
+            <article class="posts-expand">
+                <header class="post-header">
+                    <h2 class="post-title">
+                        Linux 的启动流程
+                    </h2>
+                    <div class="post-meta">
+                            <span class="post-time">
+                                    更新于
+                                <time>
+                                    2021-02-07
+                                </time>
+                            </span>
+                        <span class="post-comments-count">
+                                &nbsp; | &nbsp;
+                                <a href="https://andy-ho.github.io/articles/2021/02/07/1612676621642.html#b3logsolocomments">
+                                    <span data-uvstatcmt="1612676621642">0</span> 条评论</a>
+                        </span>
+                        &nbsp; | &nbsp; 热度
+                        <span data-uvstaturl="https://andy-ho.github.io/articles/2021/02/07/1612676621642.html">0</span>°C
+                    </div>
+                </header>
+
+                <div class="post-body post-body--article vditor-reset">
+                    <p>作者： <a href="http://www.ruanyifeng.com/" target="_blank">阮一峰</a></p>
+<p>日期： <a href="http://www.ruanyifeng.com/blog/2013/08/" target="_blank">2013年8月17日</a></p>
+<p>半年前，我写了<a href="http://www.ruanyifeng.com/blog/2013/02/booting.html" target="_blank">《计算机是如何启动的？》</a>，探讨BIOS和主引导记录的作用。</p>
+<p>那篇文章不涉及操作系统，只与主板的板载程序有关。今天，我想接着往下写，探讨操作系统接管硬件以后发生的事情，也就是操作系统的启动流程。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload5638220161552221678-21807d24.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>这个部分比较有意思。因为在BIOS阶段，计算机的行为基本上被写死了，程序员可以做的事情并不多；但是，一旦进入操作系统，程序员几乎可以定制所有方面。所以，这个部分与程序员的关系更密切。</p>
+<p>我主要关心的是Linux操作系统，它是目前服务器端的主流操作系统。下面的内容针对的是<a href="http://en.wikipedia.org/wiki/Debian" target="_blank">Debian</a>发行版，因为我对其他发行版不够熟悉。</p>
+<h2 id="第一步-加载内核">第一步、加载内核</h2>
+<p>操作系统接管硬件以后，首先读入 /boot 目录下的内核文件。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload5648822302699748530-50613f76.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>以我的电脑为例，/boot 目录下面大概是这样一些文件：</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln"> 1</span>$ ls /boot
+<span class="highlight-ln"> 2</span>　　
+<span class="highlight-ln"> 3</span>　　config-3.2.0-3-amd64
+<span class="highlight-ln"> 4</span>　　config-3.2.0-4-amd64
+<span class="highlight-ln"> 5</span>　　grub
+<span class="highlight-ln"> 6</span>　　initrd.img-3.2.0-3-amd64
+<span class="highlight-ln"> 7</span>　　initrd.img-3.2.0-4-amd64
+<span class="highlight-ln"> 8</span>　　System.map-3.2.0-3-amd64
+<span class="highlight-ln"> 9</span>　　System.map-3.2.0-4-amd64
+<span class="highlight-ln">10</span>　　vmlinuz-3.2.0-3-amd64
+<span class="highlight-ln">11</span>　　vmlinuz-3.2.0-4-amd64
+</code></pre>
+</blockquote>
+<h2 id="第二步-启动初始化进程">第二步、启动初始化进程</h2>
+<p>内核文件加载以后，就开始运行第一个程序 /sbin/init，它的作用是初始化系统环境。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload8392430579298268850-ec52773d.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>由于init是第一个运行的程序，它的进程编号（pid）就是1。其他所有进程都从它衍生，都是它的子进程。</p>
+<h2 id="第三步-确定运行级别">第三步、确定运行级别</h2>
+<p>许多程序需要开机启动。它们在Windows叫做"服务"（service），在Linux就叫做"<a href="http://zh.wikipedia.org/wiki/%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B" target="_blank">守护进程</a>"（daemon）。</p>
+<p>init进程的一大任务，就是去运行这些开机启动的程序。但是，不同的场合需要启动不同的程序，比如用作服务器时，需要启动Apache，用作桌面就不需要。Linux允许为不同的场合，分配不同的开机启动程序，这就叫做"<a href="http://zh.wikipedia.org/wiki/%E8%BF%90%E8%A1%8C%E7%BA%A7%E5%88%AB" target="_blank">运行级别</a>"（runlevel）。也就是说，启动时根据"运行级别"，确定要运行哪些程序。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload4228491629357862962-d701c4c9.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>Linux预置七种运行级别（0-6）。一般来说，0是关机，1是单用户模式（也就是维护模式），6是重启。运行级别2-5，各个发行版不太一样，对于Debian来说，都是同样的多用户模式（也就是正常模式）。</p>
+<p>init进程首先读取文件 /etc/inittab，它是运行级别的设置文件。如果你打开它，可以看到第一行是这样的：</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>id:2:initdefault:
+</code></pre>
+</blockquote>
+<p>initdefault的值是2，表明系统启动时的运行级别为2。如果需要指定其他级别，可以手动修改这个值。</p>
+<p>那么，运行级别2有些什么程序呢，系统怎么知道每个级别应该加载哪些程序呢？......回答是每个运行级别在/etc目录下面，都有一个对应的子目录，指定要加载的程序。</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>/etc/rc0.d
+<span class="highlight-ln">2</span>　　/etc/rc1.d
+<span class="highlight-ln">3</span>　　/etc/rc2.d
+<span class="highlight-ln">4</span>　　/etc/rc3.d
+<span class="highlight-ln">5</span>　　/etc/rc4.d
+<span class="highlight-ln">6</span>　　/etc/rc5.d
+<span class="highlight-ln">7</span>　　/etc/rc6.d
+</code></pre>
+</blockquote>
+<p>上面目录名中的"rc"，表示run command（运行程序），最后的d表示directory（目录）。下面让我们看看 /etc/rc2.d 目录中到底指定了哪些程序。</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln"> 1</span>$ ls  /etc/rc2.d
+<span class="highlight-ln"> 2</span>　　
+<span class="highlight-ln"> 3</span>　　README
+<span class="highlight-ln"> 4</span>　　S01motd
+<span class="highlight-ln"> 5</span>　　S13rpcbind
+<span class="highlight-ln"> 6</span>　　S14nfs-common
+<span class="highlight-ln"> 7</span>　　S16binfmt-support
+<span class="highlight-ln"> 8</span>　　S16rsyslog
+<span class="highlight-ln"> 9</span>　　S16sudo
+<span class="highlight-ln">10</span>　　S17apache2
+<span class="highlight-ln">11</span>　　S18acpid
+<span class="highlight-ln">12</span>　　...
+</code></pre>
+</blockquote>
+<p>可以看到，除了第一个文件README以外，其他文件名都是"字母S+两位数字+程序名"的形式。字母S表示Start，也就是启动的意思（启动脚本的运行参数为start），如果这个位置是字母K，就代表Kill（关闭），即如果从其他运行级别切换过来，需要关闭的程序（启动脚本的运行参数为stop）。后面的两位数字表示处理顺序，数字越小越早处理，所以第一个启动的程序是motd，然后是rpcbing、nfs......数字相同时，则按照程序名的字母顺序启动，所以rsyslog会先于sudo启动。</p>
+<p>这个目录里的所有文件（除了README），就是启动时要加载的程序。如果想增加或删除某些程序，不建议手动修改 /etc/rcN.d 目录，最好是用一些专门命令进行管理（参考<a href="http://www.debianadmin.com/manage-linux-init-or-startup-scripts.html" target="_blank">这里</a>和<a href="http://www.debianadmin.com/remove-unwanted-startup-files-or-services-in-debian.html" target="_blank">这里</a>）。</p>
+<h2 id="第四步-加载开机启动程序">第四步、加载开机启动程序</h2>
+<p>前面提到，七种预设的"运行级别"各自有一个目录，存放需要开机启动的程序。不难想到，如果多个"运行级别"需要启动同一个程序，那么这个程序的启动脚本，就会在每一个目录里都有一个拷贝。这样会造成管理上的困扰：如果要修改启动脚本，岂不是每个目录都要改一遍？</p>
+<p>Linux的解决办法，就是七个 /etc/rcN.d 目录里列出的程序，都设为链接文件，指向另外一个目录 /etc/init.d ，真正的启动脚本都统一放在这个目录中。init进程逐一加载开机启动程序，其实就是运行这个目录里的启动脚本。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload4880888163746211797-80627399.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>下面就是链接文件真正的指向。</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln"> 1</span>$ ls -l /etc/rc2.d
+<span class="highlight-ln"> 2</span>　　
+<span class="highlight-ln"> 3</span>　　README
+<span class="highlight-ln"> 4</span>　　S01motd -&gt; ../init.d/motd
+<span class="highlight-ln"> 5</span>　　S13rpcbind -&gt; ../init.d/rpcbind
+<span class="highlight-ln"> 6</span>　　S14nfs-common -&gt; ../init.d/nfs-common
+<span class="highlight-ln"> 7</span>　　S16binfmt-support -&gt; ../init.d/binfmt-support
+<span class="highlight-ln"> 8</span>　　S16rsyslog -&gt; ../init.d/rsyslog
+<span class="highlight-ln"> 9</span>　　S16sudo -&gt; ../init.d/sudo
+<span class="highlight-ln">10</span>　　S17apache2 -&gt; ../init.d/apache2
+<span class="highlight-ln">11</span>　　S18acpid -&gt; ../init.d/acpid
+<span class="highlight-ln">12</span>　　...
+</code></pre>
+</blockquote>
+<p>这样做的另一个好处，就是如果你要手动关闭或重启某个进程，直接到目录 /etc/init.d 中寻找启动脚本即可。比如，我要重启Apache服务器，就运行下面的命令：</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>$ sudo /etc/init.d/apache2 restart
+</code></pre>
+</blockquote>
+<p>/etc/init.d 这个目录名最后一个字母d，是directory的意思，表示这是一个目录，用来与程序 /etc/init 区分。</p>
+<h2 id="第五步-用户登录">第五步、用户登录</h2>
+<p>开机启动程序加载完毕以后，就要让用户登录了。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload3437700821174909545-37ec18cd.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>一般来说，用户的登录方式有三种：</p>
+<blockquote>
+<p>　　（1）命令行登录</p>
+<p>　　（2）ssh登录</p>
+<p>　　（3）图形界面登录</p>
+</blockquote>
+<p>这三种情况，都有自己的方式对用户进行认证。</p>
+<p>（1）命令行登录：init进程调用getty程序（意为get teletype），让用户输入用户名和密码。输入完成后，再调用login程序，核对密码（Debian还会再多运行一个身份核对程序/etc/pam.d/login）。如果密码正确，就从文件 /etc/passwd 读取该用户指定的shell，然后启动这个shell。</p>
+<p>（2）ssh登录：这时系统调用sshd程序（Debian还会再运行/etc/pam.d/ssh ），取代getty和login，然后启动shell。</p>
+<p>（3）图形界面登录：init进程调用显示管理器，Gnome图形界面对应的显示管理器为gdm（GNOME Display Manager），然后用户输入用户名和密码。如果密码正确，就读取/etc/gdm3/Xsession，启动用户的会话。</p>
+<h2 id="第六步-进入-login-shell">第六步、进入 login shell</h2>
+<p>所谓shell，简单说就是命令行界面，让用户可以直接与操作系统对话。用户登录时打开的shell，就叫做login shell。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload6357060212701092349-f161520a.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>Debian默认的shell是<a href="http://zh.wikipedia.org/wiki/Bash" target="_blank">Bash</a>，它会读入一系列的配置文件。上一步的三种情况，在这一步的处理，也存在差异。</p>
+<p>（1）命令行登录：首先读入 /etc/profile，这是对所有用户都有效的配置；然后依次寻找下面三个文件，这是针对当前用户的配置。</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span>~/.bash_profile
+<span class="highlight-ln">2</span>　　~/.bash_login
+<span class="highlight-ln">3</span>　　~/.profile
+</code></pre>
+</blockquote>
+<p>需要注意的是，这三个文件只要有一个存在，就不再读入后面的文件了。比如，要是 ~/.bash_profile 存在，就不会再读入后面两个文件了。</p>
+<p>（2）ssh登录：与第一种情况完全相同。</p>
+<p>（3）图形界面登录：只加载 /etc/profile 和 <del>/.profile。也就是说，</del>/.bash_profile 不管有没有，都不会运行。</p>
+<h2 id="第七步-打开-non-login-shell">第七步，打开 non-login shell</h2>
+<p>老实说，上一步完成以后，Linux的启动过程就算结束了，用户已经可以看到命令行提示符或者图形界面了。但是，为了内容的完整，必须再介绍一下这一步。</p>
+<p>用户进入操作系统以后，常常会再手动开启一个shell。这个shell就叫做 non-login shell，意思是它不同于登录时出现的那个shell，不读取/etc/profile和.profile等配置文件。</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload2131570948268578495-118d4e73.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>non-login shell的重要性，不仅在于它是用户最常接触的那个shell，还在于它会读入用户自己的bash配置文件 ~/.bashrc。大多数时候，我们对于bash的定制，都是写在这个文件里面的。</p>
+<p>你也许会问，要是不进入 non-login shell，岂不是.bashrc就不会运行了，因此bash 也就不能完成定制了？事实上，Debian已经考虑到这个问题了，请打开文件 ~/.profile，可以看到下面的代码：</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-k">if</span> <span class="highlight-o">[</span> -n <span class="highlight-s2">"</span><span class="highlight-nv">$BASH_VERSION</span><span class="highlight-s2">"</span> <span class="highlight-o">]</span><span class="highlight-p">;</span> <span class="highlight-k">then</span>
+<span class="highlight-ln">2</span>　　　　<span class="highlight-k">if</span> <span class="highlight-o">[</span> -f <span class="highlight-s2">"</span><span class="highlight-nv">$HOME</span><span class="highlight-s2">/.bashrc"</span> <span class="highlight-o">]</span><span class="highlight-p">;</span> <span class="highlight-k">then</span>
+<span class="highlight-ln">3</span>　　　　　　. <span class="highlight-s2">"</span><span class="highlight-nv">$HOME</span><span class="highlight-s2">/.bashrc"</span>
+<span class="highlight-ln">4</span>　　　　<span class="highlight-k">fi</span>
+<span class="highlight-ln">5</span>　　<span class="highlight-k">fi</span>
+</code></pre>
+</blockquote>
+<p>上面代码先判断变量 $BASH_VERSION 是否有值，然后判断主目录下是否存在 .bashrc 文件，如果存在就运行该文件。第三行开头的那个点，是source命令的简写形式，表示运行某个文件，写成"source ~/.bashrc"也是可以的。</p>
+<p>因此，只要运行～/.profile文件，～/.bashrc文件就会连带运行。但是上一节的第一种情况提到过，如果存在～/.bash_profile文件，那么有可能不会运行～/.profile文件。解决这个问题很简单，把下面代码写入.bash_profile就行了。</p>
+<blockquote>
+<pre><code class="language-bash highlight-chroma"><span class="highlight-ln">1</span><span class="highlight-k">if</span> <span class="highlight-o">[</span> -f ~/.profile <span class="highlight-o">]</span><span class="highlight-p">;</span> <span class="highlight-k">then</span>
+<span class="highlight-ln">2</span>　　　　. ~/.profile
+<span class="highlight-ln">3</span>　　<span class="highlight-k">fi</span>
+</code></pre>
+</blockquote>
+<p>这样一来，不管是哪种情况，.bashrc都会执行，用户的设置可以放心地都写入这个文件了。</p>
+<p>Bash的设置之所以如此繁琐，是由于历史原因造成的。早期的时候，计算机运行速度很慢，载入配置文件需要很长时间，Bash的作者只好把配置文件分成了几个部分，阶段性载入。系统的通用设置放在 /etc/profile，用户个人的、需要被所有子进程继承的设置放在.profile，不需要被继承的设置放在.bashrc。</p>
+<p>顺便提一下，除了Linux以外， Mac OS X 使用的shell也是Bash。但是，它只加载.bash_profile，然后在.bash_profile里面调用.bashrc。而且，不管是ssh登录，还是在图形界面里启动shell窗口，都是如此。</p>
+<h2 id="参考链接">参考链接</h2>
+<blockquote>
+<p>[1] Debian Wiki, <a href="https://wiki.debian.org/EnvironmentVariables" target="_blank">Environment Variables</a></p>
+<p>[2] Debian Wiki, <a href="https://wiki.debian.org/DotFiles" target="_blank">Dot Files</a></p>
+<p>[3] Debian Administration, <a href="http://www.debian-administration.org/articles/212" target="_blank">An introduction to run-levels</a></p>
+<p>[4] Debian Admin，<a href="http://www.debianadmin.com/debian-and-ubuntu-linux-run-levels.html" target="_blank">Debian and Ubuntu Linux Run Levels</a></p>
+<p>[5] Linux Information Project (LINFO), <a href="http://www.linfo.org/runlevel_def.html" target="_blank">Runlevel Definition</a></p>
+<p>[6] LinuxQuestions.org, <a href="http://wiki.linuxquestions.org/wiki/Run_Levels" target="_blank">What are run levels?</a></p>
+<p>[7] Dalton Hubble, <a href="http://dghubble.com/.bashprofile-.profile-and-.bashrc-conventions.html" target="_blank">Bash Configurations Demystified</a></p>
+</blockquote>
+<p>（完）</p>
+<h2 id="文档信息">文档信息</h2>
+<ul>
+<li>版权声明：自由转载-非商用-非衍生-保持署名（<a href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">创意共享3.0许可证</a>）</li>
+<li>发表日期： 2013年8月17日</li>
+</ul>
+                        <div>
+                            <hr>
+<img src="https://b3logfile.com/file/2021/02/德128-101e7077.png" width="64" height="64" alt="德64.png" />
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                        </div>
+                </div>
+                <footer>
+                    <div class="post-tags">
+                            <a rel="tag" href="https://andy-ho.github.io/tags/Linux">
+                                Linux</a>
+                            <a rel="tag" href="https://andy-ho.github.io/tags/Code">
+                                Code</a>
+                    </div>
+                    <div class="post-nav fn-clear">
+                            <div class="post-nav-prev post-nav-item fn-right">
+                                <a href="https://andy-ho.github.io/articles/2021/01/31/1612080415476.html" rel="prev"
+                                   title="2021.1.31我给儿子买了一份重疾险">
+                                    2021.1.31我给儿子买了一份重疾险 >
+                                </a>
+                            </div>
+                            <div class="post-nav-next post-nav-item fn-left">
+                                <a href="https://andy-ho.github.io/articles/2021/02/07/1612677144228.html" rel="next" title="Linux 系统目录结构">
+                                    < Linux 系统目录结构
+                                </a>
+                            </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+            <div id="gitalk-container"></div>
+            <div id="b3logsolocomments"></div>
+            <div id="vcomment" data-name="andyho" data-postId="1612676621642"></div>
+            <div id="relevantArticles"></div>
+            <div id="randomArticles"></div>
+<div class="sidebar-toggle">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#第一步-加载内核">第一步、加载内核</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#第二步-启动初始化进程">第二步、启动初始化进程</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#第三步-确定运行级别">第三步、确定运行级别</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#第四步-加载开机启动程序">第四步、加载开机启动程序</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#第五步-用户登录">第五步、用户登录</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#第六步-进入-login-shell">第六步、进入 login shell</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#第七步-打开-non-login-shell">第七步，打开 non-login shell</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#参考链接">参考链接</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#文档信息">文档信息</a>
+        </li>
+</ul></aside>
+    </div>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <div class="fn-clear">
+            <a href="https://andy-ho.github.io">厚德菌</a>
+            
+            <div class="fn-right">
+    <a href="https://ld246.com/member/andyho"
+       aria-label="https://ld246.com/member/andyho"
+       class="vditor-tooltipped__n vditor-tooltipped  user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/andy-ho"
+           aria-label="https://github.com/andy-ho"
+           class="vditor-tooltipped__n vditor-tooltipped  user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+            </div>
+        </div>
+        <div class="fn-clear">
+            &copy; 2021
+            <a href="https://andy-ho.github.io">厚德菌</a>
+            ——厚德行健，成人达己
+        </div>
+    </div>
+</footer>
+<div class="back-to-top" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    speech: false,
+    servePath: "https://andy-ho.github.io",
+    staticServePath: "https://andy-ho.github.io",
+    luteAvailable: true,
+    hljsStyle: 'dracula',
+    langLabel: "zh_CN",
+    version: "4.3.1",
+    staticSite: true,
+    showCodeBlockLn: true,
+    articleId: "1612676621642",
+  }
+</script>
+<script src="https://andy-ho.github.io/skins/next/js/common.min.js?1612759470814"></script>
+<script type="text/javascript">
+    Label.tocLabel = "目录"
+    Label.siteViewLabel = "站点概览"
+</script>
+
+<script type="text/javascript">
+    Util.addScript('https://andy-ho.github.io/js/page.min.js?1612759470814', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论不能为空",
+        "oId": "1612676621642",
+        "blogHost": "https://andy-ho.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+        page.loadRandomArticles();
+        page.loadRelevantArticles('1612676621642', '<h4>相关阅读：</h4>');
+    NexT.initArticle()
+    });
+</script>
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 106ms, 2021/02/13 00:41:15 -->

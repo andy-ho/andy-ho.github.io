@@ -3,10 +3,10 @@
     "theme_color": "#1fb5ad",
     "background_color": "#f1f2f7",
     "display": "standalone",
-    "name": "观音参禅",
+    "name": "厚德菌",
     "start_url": ".",
     "description": "一个会写Cpp的文艺范儿佛系AI PM。",
-    "short_name": "观音参禅",
+    "short_name": "厚德菌",
     "icons": [
         {
             "sizes": "48x48",

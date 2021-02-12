@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>Linux 系统目录结构 - 厚德菌</title><meta name="description" content="一个会写Cpp的文艺范儿佛系AI PM。"/><meta property="og:description" content="一个会写Cpp的文艺范儿佛系AI PM。"/>    <meta name="keywords" content="厚德菌,观音,参禅,歌尔,歌尔股份,新海软件,PM,项目经理,文艺,佛系,德健,Andy,Solo,Java,博客,开源"/><link rel="dns-prefetch" href="https://andy-ho.github.io"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://andy-ho.github.io"><link rel="icon" type="image/png" href="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"/><link rel="apple-touch-icon" href="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="Linux 系统目录结构 - 厚德菌"/><meta property="og:site_name" content="厚德菌"/><meta property="og:url"      content="https://andy-ho.github.io/articles/2021/02/07/1612677144228.html?"/><meta property="og:image" content="https://b3logfile.com/file/2021/02/德256-f9662b6c.png"/><link rel="search" type="application/opensearchdescription+xml" title="Linux 系统目录结构 - 厚德菌" href="/opensearch.xml"><link href="https://andy-ho.github.io/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://andy-ho.github.io/manifest.json">        <link rel="canonical" href="https://andy-ho.github.io/articles/2021/02/07/1612677144228.html">        <link rel="stylesheet"
+              href="https://andy-ho.github.io/skins/next/css/base.css?1612759470814"/>
+            <link rel="prev" title="Linux 的启动流程" href="https://andy-ho.github.io/articles/2021/02/07/1612676621642.html">
+            <link rel="next" title="Unix目录结构的来历" href="https://andy-ho.github.io/articles/2021/02/07/1612677333476.html">
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.6.6/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
+<body>
+<header class="header">
+    <div class="header-line"></div>
+    <div class="fn-clear wrapper">
+        <div class="logo-wrap">
+            <a href="https://andy-ho.github.io" rel="start">
+                <span class="logo-line-before"><i></i></span>
+                <span class="site-title">厚德菌</span>
+                <span class="logo-line-after"><i></i></span>
+            </a>
+        </div>
+
+        <div class="site-nav-toggle fn-right"
+             onclick="$('.header-line').toggle();$('nav').children('.menu').slideToggle();">
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+        </div>
+
+        <nav>
+            <ul class="menu">
+                    <li class="menu-item">
+                        <a href="/articles/2020/01/17/1579273512935.html" target="_self" rel="section">
+                            何许人也
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/articles/2021/02/12/1613090652063.html" target="_self" rel="section">
+                            岁在辛丑
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/articles/2021/01/24/1611419632093.html" target="_self" rel="section">
+                            书单
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://ld246.com/member/andyho" target="_self" rel="section">
+                            链滴
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://gitee.com/andy-ho" target="_self" rel="section">
+                            Gitee
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="https://github.com/andy-ho" target="_self" rel="section">
+                            Github
+                        </a>
+                    </li>
+            </ul>
+
+        </nav>
+    </div>
+</header><main class="main">
+    <div class="wrapper">
+        <div class="content">
+            <article class="posts-expand">
+                <header class="post-header">
+                    <h2 class="post-title">
+                        Linux 系统目录结构
+                    </h2>
+                    <div class="post-meta">
+                            <span class="post-time">
+                                    更新于
+                                <time>
+                                    2021-02-07
+                                </time>
+                            </span>
+                        <span class="post-comments-count">
+                                &nbsp; | &nbsp;
+                                <a href="https://andy-ho.github.io/articles/2021/02/07/1612677144228.html#b3logsolocomments">
+                                    <span data-uvstatcmt="1612677144228">0</span> 条评论</a>
+                        </span>
+                        &nbsp; | &nbsp; 热度
+                        <span data-uvstaturl="https://andy-ho.github.io/articles/2021/02/07/1612677144228.html">0</span>°C
+                    </div>
+                </header>
+
+                <div class="post-body post-body--article vditor-reset">
+                    <p>来自：<a href="https://www.runoob.com/linux/linux-system-contents.html" target="_blank">runoob.com</a></p>
+<p>登录系统后，在当前命令窗口下输入命令：</p>
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>ls /
+</code></pre>
+<p>你会看到如下图所示:</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload6377778005607144307-788e4c9e.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>树状目录结构：</p>
+<p><img src="https://b3logfile.com/file/2021/02/solofetchupload2895956670144945317-7fce7bb3.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>
+<p>以下是对这些目录的解释：</p>
+<ul>
+<li><strong>/bin</strong>：<br>
+bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。</li>
+<li><strong>/boot：</strong><br>
+这里存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</li>
+<li><strong>/dev ：</strong><br>
+dev 是 Device(设备) 的缩写, 该目录下存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</li>
+<li><strong>/etc：</strong><br>
+etc 是 Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录。</li>
+<li><strong>/home</strong>：<br>
+用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，如上图中的 alice、bob 和 eve。</li>
+<li><strong>/lib</strong>：<br>
+lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</li>
+<li><strong>/lost+found</strong>：<br>
+这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</li>
+<li><strong>/media</strong>：<br>
+linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下。</li>
+<li><strong>/mnt</strong>：<br>
+系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 /mnt/ 上，然后进入该目录就可以查看光驱里的内容了。</li>
+<li><strong>/opt</strong>：<br>
+opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</li>
+<li><strong>/proc</strong>：<br>
+proc 是 Processes(进程) 的缩写，/proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>
+这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：
+<pre><code class="highlight-chroma"><span class="highlight-ln">1</span>echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+</code></pre>
+</li>
+<li><strong>/root</strong>：<br>
+该目录为系统管理员，也称作超级权限者的用户主目录。</li>
+<li><strong>/sbin</strong>：<br>
+s 就是 Super User 的意思，是 Superuser Binaries (超级用户的二进制文件) 的缩写，这里存放的是系统管理员使用的系统管理程序。</li>
+<li><strong>/selinux</strong>：<br>
+这个目录是 Redhat/CentOS 所特有的目录，Selinux 是一个安全机制，类似于 windows 的防火墙，但是这套机制比较复杂，这个目录就是存放selinux相关的文件的。</li>
+<li><strong>/srv</strong>：<br>
+该目录存放一些服务启动之后需要提取的数据。</li>
+<li><strong>/sys</strong>：<br>
+这是 Linux2.6 内核的一个很大的变化。该目录下安装了 2.6 内核中新出现的一个文件系统 sysfs 。<br>
+sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。<br>
+该文件系统是内核设备树的一个直观反映。<br>
+当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</li>
+<li><strong>/tmp</strong>：<br>
+tmp 是 temporary(临时) 的缩写这个目录是用来存放一些临时文件的。</li>
+<li><strong>/usr</strong>：<br>
+usr 是 unix shared resources(共享资源) 的缩写，这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。</li>
+<li><strong>/usr/bin：</strong><br>
+系统用户使用的应用程序。</li>
+<li><strong>/usr/sbin：</strong><br>
+超级用户使用的比较高级的管理程序和系统守护程序。</li>
+<li><strong>/usr/src：</strong><br>
+内核源代码默认的放置目录。</li>
+<li><strong>/var</strong>：<br>
+var 是 variable(变量) 的缩写，这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</li>
+<li><strong>/run</strong>：<br>
+是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 /var/run 目录，应该让它指向 run。</li>
+</ul>
+<p>在 Linux 系统中，有几个目录是比较重要的，平时需要注意不要误删除或者随意更改内部文件。</p>
+<p><strong>/etc</strong>： 上边也提到了，这个是系统中的配置文件，如果你更改了该目录下的某个文件可能会导致系统不能启动。</p>
+<p><strong>/bin, /sbin, /usr/bin, /usr/sbin</strong>: 这是系统预设的执行文件的放置目录，比如 ls 就是在 /bin/ls 目录下的。</p>
+<p>值得提出的是，/bin, /usr/bin 是给系统用户使用的指令（除root外的通用户），而/sbin, /usr/sbin 则是给 root 使用的指令。</p>
+<p><strong>/var</strong>： 这是一个非常重要的目录，系统上跑了很多程序，那么每个程序都会有相应的日志产生，而这些日志就被记录到这个目录下，具体在 /var/log 目录下，另外 mail 的预设放置也是在这里。</p>
+<p>（完）</p>
+<h2 id="拓展阅读">拓展阅读</h2>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2012/02/a_history_of_unix_directory_structure.html" target="_blank">Unix目录结构的来历，阮一峰</a></li>
+</ul>
+                        <div>
+                            <hr>
+<img src="https://b3logfile.com/file/2021/02/德128-101e7077.png" width="64" height="64" alt="德64.png" />
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                        </div>
+                </div>
+                <footer>
+                    <div class="post-tags">
+                            <a rel="tag" href="https://andy-ho.github.io/tags/Linux">
+                                Linux</a>
+                            <a rel="tag" href="https://andy-ho.github.io/tags/Code">
+                                Code</a>
+                    </div>
+                    <div class="post-nav fn-clear">
+                            <div class="post-nav-prev post-nav-item fn-right">
+                                <a href="https://andy-ho.github.io/articles/2021/02/07/1612676621642.html" rel="prev"
+                                   title="Linux 的启动流程">
+                                    Linux 的启动流程 >
+                                </a>
+                            </div>
+                            <div class="post-nav-next post-nav-item fn-left">
+                                <a href="https://andy-ho.github.io/articles/2021/02/07/1612677333476.html" rel="next" title="Unix目录结构的来历">
+                                    < Unix目录结构的来历
+                                </a>
+                            </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+            <div id="gitalk-container"></div>
+            <div id="b3logsolocomments"></div>
+            <div id="vcomment" data-name="andyho" data-postId="1612677144228"></div>
+            <div id="relevantArticles"></div>
+            <div id="randomArticles"></div>
+<div class="sidebar-toggle">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#拓展阅读">拓展阅读</a>
+        </li>
+</ul></aside>
+    </div>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <div class="fn-clear">
+            <a href="https://andy-ho.github.io">厚德菌</a>
+            
+            <div class="fn-right">
+    <a href="https://ld246.com/member/andyho"
+       aria-label="https://ld246.com/member/andyho"
+       class="vditor-tooltipped__n vditor-tooltipped  user__site"
+       target="_blank" rel="noopener nofollow">
+        <svg viewBox="0 0 32 32" width="100%" height="100%">
+            <path fill="#d23f31" style="fill: var(--color1, #d23f31)" d="M5.787 17.226h17.033l5.954 9.528c0.47 0.752 0.003 1.361-1.042 1.361h-15.141z"></path>
+            <path d="M10.74 3.927h17.033c1.045 0 1.512 0.609 1.042 1.361l-5.954 9.528h-19.872l6.379-10.209c0.235-0.376 0.849-0.681 1.372-0.681z"></path>
+            <path d="M2.953 17.226h2.839l6.804 10.889h-1.892c-0.523 0-1.137-0.305-1.372-0.681z"></path>
+        </svg>
+    </a>
+
+        <a href="https://github.com/andy-ho"
+           aria-label="https://github.com/andy-ho"
+           class="vditor-tooltipped__n vditor-tooltipped  user__site"
+           target="_blank" rel="noopener nofollow">
+            <svg viewBox="0 0 32 32" width="100%" height="100%">
+                <path d="M16 0.331c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"></path>
+            </svg>
+        </a>
+
+            </div>
+        </div>
+        <div class="fn-clear">
+            &copy; 2021
+            <a href="https://andy-ho.github.io">厚德菌</a>
+            ——厚德行健，成人达己
+        </div>
+    </div>
+</footer>
+<div class="back-to-top" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    speech: false,
+    servePath: "https://andy-ho.github.io",
+    staticServePath: "https://andy-ho.github.io",
+    luteAvailable: true,
+    hljsStyle: 'dracula',
+    langLabel: "zh_CN",
+    version: "4.3.1",
+    staticSite: true,
+    showCodeBlockLn: true,
+    articleId: "1612677144228",
+  }
+</script>
+<script src="https://andy-ho.github.io/skins/next/js/common.min.js?1612759470814"></script>
+<script type="text/javascript">
+    Label.tocLabel = "目录"
+    Label.siteViewLabel = "站点概览"
+</script>
+
+<script type="text/javascript">
+    Util.addScript('https://andy-ho.github.io/js/page.min.js?1612759470814', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论不能为空",
+        "oId": "1612677144228",
+        "blogHost": "https://andy-ho.github.io",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+        page.loadRandomArticles();
+        page.loadRelevantArticles('1612677144228', '<h4>相关阅读：</h4>');
+    NexT.initArticle()
+    });
+</script>
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 119ms, 2021/02/13 00:41:15 -->

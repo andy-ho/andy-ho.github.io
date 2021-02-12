@@ -1,32 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>观音参禅</title>
+    <title>厚德菌</title>
     <link>https://andy-ho.github.io</link>
     <atom:link href="https://andy-ho.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     <description>一个会写Cpp的文艺范儿佛系AI PM。</description>
     <generator>Solo, v4.3.1, https://b3log.org/solo</generator>
-    <lastBuildDate>Sun, 24 Jan 2021 22:03:52 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Feb 2021 00:41:13 +0800</lastBuildDate>
     <language>zh-cn</language>
     <item>
-      <title>证道歌</title>
-      <link>https://andy-ho.github.io/articles/2021/01/24/1611492658816.html</link>
-      <description><![CDATA[<blockquote>
-<p>《证道歌》是<a href="https://baike.baidu.com/item/%E5%94%90%E4%BB%A3/345315" target="_blank">唐代</a>高僧永嘉<a href="https://baike.baidu.com/item/%E7%8E%84%E8%A7%89%E7%A6%85%E5%B8%88/15772812" target="_blank">玄觉禅师</a>悟道后心得精华的文字<a href="https://baike.baidu.com/item/%E8%AE%B0%E5%BD%95/1837758" target="_blank">记录</a>。这首<a href="https://baike.baidu.com/item/%E8%AF%97%E6%AD%8C/5555" target="_blank">诗歌</a>凝聚了佛教智慧和人生智慧的特有风采，产生了较为深远的影响。全诗二百四十七句，为长篇杂言形式，语言文字通俗，阐扬佛学禅理，唐宋时广为流传。</p>
-</blockquote>]]></description>
+      <title>岁在辛丑——NO FLAGS BUT TODOLIST</title>
+      <link>https://andy-ho.github.io/articles/2021/02/12/1613090652063.html</link>
+      <description><![CDATA[<p><img src="https://b3logfile.com/file/2021/02/%E7%89%9B%E5%BE%B7-02231de3.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="牛德.jpg"></p>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2021/01/24/1611492658816.html</guid>
-      <category>佛法</category>
-      <pubDate>Sun, 24 Jan 2021 21:15:30 +0800</pubDate>
-    </item>
-    <item>
-      <title>金刚萨埵百字明</title>
-      <link>https://andy-ho.github.io/articles/2021/01/24/1611491064594.html</link>
-      <description><![CDATA[<p>“金刚萨埵”，亦作“金刚萨垛”(<a href="https://baike.baidu.com/item/%E8%97%8F%E4%BC%A0%E4%BD%9B%E6%95%99/172243" target="_blank">藏传佛教</a>密宗）。金刚萨埵百字明咒，又作金刚萨埵咒、百字真言、百字明、金刚萨埵百字明等。</p>]]></description>
-      <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2021/01/24/1611491064594.html</guid>
-      <category>佛法</category>
-      <pubDate>Sun, 24 Jan 2021 20:24:24 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2021/02/12/1613090652063.html</guid>
+      <category>Life</category>
+      <pubDate>Fri, 12 Feb 2021 13:22:07 +0800</pubDate>
     </item>
     <item>
       <title>书单</title>
@@ -35,101 +24,90 @@
       <author>andyho</author>
       <guid>https://andy-ho.github.io/articles/2021/01/24/1611419632093.html</guid>
       <category>Reading</category>
-      <pubDate>Sun, 24 Jan 2021 15:16:12 +0800</pubDate>
+      <pubDate>Wed, 10 Feb 2021 23:32:43 +0800</pubDate>
     </item>
     <item>
-      <title>般若波罗蜜多心经</title>
-      <link>https://andy-ho.github.io/articles/2021/01/23/1611402771102.html</link>
-      <description><![CDATA[<p>揭谛揭谛 波罗揭谛 波罗僧揭谛 菩提萨婆诃。</p>]]></description>
+      <title>何许人也</title>
+      <link>https://andy-ho.github.io/articles/2020/01/17/1579273512935.html</link>
+      <description><![CDATA[<p><img src="https://b3logfile.com/file/2021/01/%E8%A1%8C%E5%83%A7%E5%AE%BD-0a1dabe8.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="行僧宽.jpg"></p>
+<blockquote>
+<p><a href="http://andy-ho.top/" target="_blank">厚德菌</a>，一个会写 CPP 的八零后文艺范儿佛系 AI PM。</p>
+</blockquote>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2021/01/23/1611402771102.html</guid>
-      <category>佛法</category>
-      <pubDate>Sun, 24 Jan 2021 09:16:42 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2020/01/17/1579273512935.html</guid>
+      <category>Me</category>
+      <pubDate>Tue, 09 Feb 2021 10:16:50 +0800</pubDate>
     </item>
     <item>
-      <title>解决Github图片不显示的问题</title>
-      <link>https://andy-ho.github.io/articles/2021/01/03/1609645630912.html</link>
-      <description><![CDATA[<p>修改hosts（C:\Windows\System32\drivers\etc\hosts）<br>
-手动修改host：<a href="https://github.com/521xueweihan/GitHub520" target="_blank">GitHub520</a><br>
-自动更新host：<a href="https://github.com/oldj/SwitchHosts" target="_blank">SwitchHosts</a></p>]]></description>
+      <title>转折2019，起飞2020</title>
+      <link>https://andy-ho.github.io/articles/2020/01/18/1579336274965.html</link>
+      <description><![CDATA[<blockquote>
+<p>常记溪亭日暮，沉醉不知归路。<br>
+兴尽晚回舟，误入藕花深处。<br>
+争渡，争渡，惊起一滩鸥鹭。<br>
+——李清照《如梦令·常记溪亭日暮》</p>
+</blockquote>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2021/01/03/1609645630912.html</guid>
+      <guid>https://andy-ho.github.io/articles/2020/01/18/1579336274965.html</guid>
+      <category>Thought</category>
+      <pubDate>Mon, 08 Feb 2021 17:31:53 +0800</pubDate>
+    </item>
+    <item>
+      <title>Linux 的启动流程</title>
+      <link>https://andy-ho.github.io/articles/2021/02/07/1612676621642.html</link>
+      <description><![CDATA[<p><img src="https://b3logfile.com/file/2021/02/solofetchupload5638220161552221678-21807d24.png?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>]]></description>
+      <author>andyho</author>
+      <guid>https://andy-ho.github.io/articles/2021/02/07/1612676621642.html</guid>
+      <category>Linux</category>
       <category>Code</category>
-      <category>GitHub</category>
-      <pubDate>Sun, 24 Jan 2021 00:02:49 +0800</pubDate>
+      <pubDate>Sun, 07 Feb 2021 21:33:06 +0800</pubDate>
     </item>
     <item>
-      <title>好好仙-4-《好好说，说好》学习纪要</title>
-      <link>https://andy-ho.github.io/articles/2020/01/03/1578063317457.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/bing/20190215.jpg?imageView2/1/w/960/h/540/interlace/1/q/100" alt=""></p>
-<blockquote>
-<p>古老而神奇的中国汉字，每一个字都是一个能量的载体。而在所有汉字当中，最好的字非好字莫属！女为阴，子为阳，合为好！一阴一阳谓之道！<br>
-好是阴阳文化的高度提炼，<br>
-好是阴阳能量的有机结合，<br>
-好是正向能量的完整代表，<br>
-好是所有追求的终极表达。<br>
-把好字用于想：好好想，想好；把好字用于说：好好说，说好；把好字用于做：好好做，做好！只要用好一个好字，一切都会更好。<br>
-——好好仙</p>
-</blockquote>]]></description>
+      <title>Linux 系统目录结构</title>
+      <link>https://andy-ho.github.io/articles/2021/02/07/1612677144228.html</link>
+      <description><![CDATA[<p><img src="https://b3logfile.com/file/2021/02/solofetchupload2895956670144945317-7fce7bb3.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt=""></p>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/03/1578063317457.html</guid>
-      <category>Reading</category>
-      <pubDate>Sat, 23 Jan 2021 20:47:28 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2021/02/07/1612677144228.html</guid>
+      <category>Code</category>
+      <category>Linux</category>
+      <pubDate>Sun, 07 Feb 2021 21:29:48 +0800</pubDate>
     </item>
     <item>
-      <title>2019-2020“时间的朋友”感悟之一</title>
-      <link>https://andy-ho.github.io/articles/2020/01/05/1578220285432.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/file/2020/01/%E4%BA%94%E4%B8%AA%E9%97%AE%E9%A2%98-715dbadd.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="五个问题.jpg"></p>
-<blockquote>
-<p>一个人花5分钟就能想清自己生活的意义。5分钟能干嘛？汪丁丁说，就是问自己5个问题，并诚实作答。这5个问题是：你是谁？你干啥？你为谁干？别人需要你吗？你干了之后，社会变得更好了么？”</p>
-<p>这真是5个神奇的问题，你每能回答一个，就会发现自己和这个世界的连接深了一层。与此同时，每能回答一个问题，你也分明地意识到，有大量的人，他们&gt; 的连接能力被你甩在了身后。<br>
-这五个问题你答得越清楚，你的财富能力就越强。<br>
-——罗振宇 《时间的朋友》</p>
-</blockquote>]]></description>
+      <title>Unix目录结构的来历</title>
+      <link>https://andy-ho.github.io/articles/2021/02/07/1612677333476.html</link>
+      <description><![CDATA[<p>根目录下面有一个子目录/bin，用于存放二进制程序。但是，/usr子目录下面还有/usr/bin，以及/usr/local/bin，也用于存放二进制程序；某些系统甚至还有/opt/bin。它们有何区别？</p>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/05/1578220285432.html</guid>
-      <category>Reading</category>
-      <pubDate>Sat, 23 Jan 2021 20:45:27 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2021/02/07/1612677333476.html</guid>
+      <category>Code</category>
+      <category>Linux</category>
+      <pubDate>Sun, 07 Feb 2021 21:25:20 +0800</pubDate>
     </item>
     <item>
-      <title>2019-2020“时间的朋友”感悟之二</title>
-      <link>https://andy-ho.github.io/articles/2020/01/05/1578227066405.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/file/2020/01/product-1c92ef3b.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="product.jpg"></p>
-<blockquote>
-<p>“先说检验品牌的一个最简单的方法，梁宁老师说：品牌，就是你愿意和它自拍。说白了，就是能和用户建立起真实的社会关系互动。你能和多少人建立起真实的社会关系互动，你的品牌就会有多大。”<br>
-——罗振宇《时间的朋友》</p>
-</blockquote>]]></description>
+      <title>《sleepyhead》- Galen Crew</title>
+      <link>https://andy-ho.github.io/articles/2021/01/25/1611565693097.html</link>
+      <description><![CDATA[<p>《Sleepyhead》是<a href="https://music.163.com/#/artist?id=34435" target="_blank">Galen Crew</a>原唱的一首歌曲。选自他的专辑《<a href="https://music.163.com/#/album?id=2643056" target="_blank">Acoustic Daydreams</a>》，整首歌曲干净、空灵、舒服的嗓音，将一段故事如<a href="https://baike.baidu.com/item/%E6%B0%91%E8%B0%A3/2974425" target="_blank">民谣</a>一般娓娓道来。</p>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/05/1578227066405.html</guid>
-      <category>Reading</category>
-      <pubDate>Sat, 23 Jan 2021 20:44:48 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2021/01/25/1611565693097.html</guid>
+      <category>Music</category>
+      <pubDate>Sun, 07 Feb 2021 14:07:00 +0800</pubDate>
     </item>
     <item>
-      <title>2019-2020“时间的朋友”感悟之三</title>
-      <link>https://andy-ho.github.io/articles/2020/01/05/1578230244314.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/file/2020/01/%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD-a9ef1ded.jpg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="基础设施.jpg"></p>
-<blockquote>
-<p>“在今天中国的市场上，你要想做一个新的化妆品品牌，很多事你不用自己做了。你只需要做好一件事：定义好你的那个不可外包的核心能力。比如，洞察用户、连接用户、把用户服务好，剩下的所有研发设计、制造、物流、营销平台，都有现成的基础设施为你提供全套解决方案。”<br>
-——罗振宇《时间的朋友》</p>
-</blockquote>]]></description>
+      <title>2021.1.31我给儿子买了一份重疾险</title>
+      <link>https://andy-ho.github.io/articles/2021/01/31/1612080415476.html</link>
+      <description><![CDATA[<p>2021年1月31日，我在旧重疾险停售的最后一天上车，给儿子买了一份重疾险。在这里顺便给大家普及一下新旧重疾险的知识。</p>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/05/1578230244314.html</guid>
-      <category>Reading</category>
-      <pubDate>Sat, 23 Jan 2021 20:44:24 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2021/01/31/1612080415476.html</guid>
+      <category>Life</category>
+      <pubDate>Sun, 31 Jan 2021 16:23:23 +0800</pubDate>
     </item>
     <item>
-      <title>2019-2020“时间的朋友”感悟之四</title>
-      <link>https://andy-ho.github.io/articles/2020/01/12/1578837908921.html</link>
-      <description><![CDATA[<p><img src="https://img.hacpai.com/file/2020/01/AE3B972D14024E66B30C8122F3AE3FF3-dfcee58b.jpeg?imageView2/2/w/1280/format/jpg/interlace/1/q/100" alt="AE3B972D14024E66B30C8122F3AE3FF3.jpeg"></p>
-<blockquote>
-<p>曾经有人问他：你怎么看待外界对你的挑剔？<br>
-贝聿铭对此的回答是：“我从来没有考虑过这些问题，因为我一直沉浸在如何解决自己的问题中。”<br>
-——罗振宇《时间的朋友》</p>
-</blockquote>]]></description>
+      <title>楞严咒全文</title>
+      <link>https://andy-ho.github.io/articles/2021/01/21/1611243412613.html</link>
+      <description><![CDATA[<p><a href="https://baike.baidu.com/item/%E6%A5%9E%E4%B8%A5%E5%92%92/7128723?fr=aladdin" target="_blank">楞严咒</a>又名大方广妙莲华王十方佛母陀罗尼咒、佛顶神咒。</p>]]></description>
       <author>andyho</author>
-      <guid>https://andy-ho.github.io/articles/2020/01/12/1578837908921.html</guid>
-      <category>Reading</category>
-      <pubDate>Sat, 23 Jan 2021 20:43:20 +0800</pubDate>
+      <guid>https://andy-ho.github.io/articles/2021/01/21/1611243412613.html</guid>
+      <category>佛法</category>
+      <pubDate>Mon, 25 Jan 2021 17:54:57 +0800</pubDate>
     </item>
   </channel>
 </rss>
